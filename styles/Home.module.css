@@ -132,7 +132,7 @@
 
 .memeCard {
   max-width: 75vh;
-  box-shadow: none;
+  box-shadow: none !important;
   border: 1px solid #e0e0e0;
 }
 
