@@ -1,7 +1,14 @@
+# README
+Basic meme generator application with very simple UI.
+This is my test project to dive deep next.js. 
+Fetching memes from random reddit posts thanks to <a href="https://github.com/D3vd/Meme_Api">this api.</a>
+### Live demo
+<a href="https://meme-generator-ssamilg.vercel.app/">Meme generator</a>
+
+<hr>
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
-
 First, run the development server:
 
 ```bash
