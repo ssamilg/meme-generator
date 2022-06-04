@@ -21,7 +21,6 @@ export default function MgCardContainer() {
         Click the button for some memes !
       </p>
 
-      <button className={styles.button} onClick={fetchMeme}>The Button</button>
       <Button variant="outlined" onClick={fetchMeme}>The Button</Button>
 
       <div className={styles.grid}>
