@@ -8,10 +8,6 @@ import Typography from '@mui/material/Typography';
 import ExitToApp from '@mui/icons-material/ExitToApp';
 
 export default function MgMemeCard({meme}) {
-  const goToSource = () => {
-
-  };
-
   return (
     <>
       <Card
@@ -41,7 +37,6 @@ export default function MgMemeCard({meme}) {
               size="small"
               variant="outlined"
               endIcon={<ExitToApp/>}
-              onClick={goToSource}
             >
               Source
             </Button>
