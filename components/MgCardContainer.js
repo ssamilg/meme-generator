@@ -3,16 +3,26 @@ import MgMemeCard from './MgMemeCard';
 import axios from 'axios';
 import { useState } from 'react';
 import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 export default function MgCardContainer() {
   const [meme, setMeme] = useState(null);
+  const [subredditName, setSubredditName] = useState('');
+
   const fetchMeme = () => {
-    axios.get('https://meme-api.herokuapp.com/gimme')
+    let url = 'https://meme-api.herokuapp.com/gimme';
+    url = subredditName !== '' ? `${url}/${subredditName}` : url;  
+
+    axios.get(url)
       .then((res) => {
         setMeme(res.data);
       })
 
     console.log(meme);
+  };
+
+  const changeSubredditName = (event) => {
+    setSubredditName(event.target.value);
   };
 
   return (
@@ -21,7 +31,10 @@ export default function MgCardContainer() {
         Click the button for some memes !
       </p>
 
-      <Button variant="outlined" onClick={fetchMeme}>The Button</Button>
+      <div className='flex-row'>
+        <TextField value={subredditName} onChange={changeSubredditName} id="outlined-basic" label="Outlined" variant="outlined" size="small"/>
+        <Button variant="outlined" onClick={fetchMeme}>The Button</Button>
+      </div>
 
       <div className={styles.grid}>
         <MgMemeCard meme={meme}/>
