@@ -156,3 +156,11 @@
   align-items: center;
   justify-content: center;
 }
+
+.mgTextField {
+  margin-right: 4px;
+}
+
+.mgTextField :global(.MuiOutlinedInput-input) {
+  padding: 7px 7px 7px 0;
+}
