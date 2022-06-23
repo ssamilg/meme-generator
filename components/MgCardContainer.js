@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
 
 export default function MgCardContainer() {
   const [meme, setMeme] = useState(null);
@@ -31,8 +32,20 @@ export default function MgCardContainer() {
         Click the button for some memes !
       </p>
 
-      <div className='flex-row'>
-        <TextField value={subredditName} onChange={changeSubredditName} id="outlined-basic" label="Outlined" variant="outlined" size="small"/>
+      <div className='flex-row'>        
+        <div className={styles.mgTextField}>
+          <TextField
+            value={subredditName}
+            onChange={changeSubredditName}
+            id="outlined-basic"
+            label="subreddit"
+            variant="outlined"
+            size="small"
+            InputProps={{
+              startAdornment: <InputAdornment position="start">r/</InputAdornment>,
+            }}
+          />
+        </div>
         <Button variant="outlined" onClick={fetchMeme}>The Button</Button>
       </div>
 
