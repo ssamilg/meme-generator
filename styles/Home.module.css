@@ -157,6 +157,10 @@
   justify-content: center;
 }
 
+.mr1 {
+  margin-right: 4px;
+}
+
 .mgTextField {
   margin-right: 4px;
 }
