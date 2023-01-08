@@ -15,7 +15,7 @@ export default function MgCardContainer() {
   const [subredditName, setSubredditName] = useState('');
 
   const fetchMeme = () => {
-    let url = 'https://meme-api.herokuapp.com/gimme';
+    let url = 'https://meme-api.com/gimme';
     url = subredditName !== '' ? `${url}/${subredditName}` : url;  
 
     axios.get(url)
