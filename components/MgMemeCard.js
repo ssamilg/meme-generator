@@ -1,48 +1,58 @@
-import styles from '../styles/Home.module.css';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import ExitToApp from '@mui/icons-material/ExitToApp';
+import { Card, Box, Text, Link, AspectRatio } from '@radix-ui/themes';
+import { ExternalLinkIcon } from '@radix-ui/react-icons';
 
-export default function MgMemeCard({meme}) {
+function MgMemeCard({ meme }) {
+  const defaultMeme = {
+    title: 'No memes ?',
+    subreddit: 'sadcat',
+    url: 'https://pbs.twimg.com/media/EAmr-PAWsAEoiWR.jpg',
+    postLink: '#'
+  };
+
+  const currentMeme = meme || defaultMeme;
+
   return (
-    <>
-      <Card
-        // sx={{ boxShadow: 'none', border: '1px solid #e0e0e0' }} 
-        className={styles.memeCard}
-      >
-        <CardContent className={styles.memeCardContent}>
-          <Typography variant="h6" component="div">
-            {meme?.title || 'No memes ?'}
-          </Typography>
+    <Card size="2" style={{ maxWidth: '800px', width: '100%', margin: '0 auto' }}>
+      <Box p="1">
+        <Text as="div" size="6" weight="bold" mb="2">
+          {currentMeme.title}
+        </Text>
+        <Text as="div" size="3" color="gray" mb="4">
+          r/{currentMeme.subreddit}
+        </Text>
+      </Box>
 
-          <Typography variant="body2" color="text.secondary">
-            r/{meme?.subreddit || 'sadcat'}
-          </Typography>
-        </CardContent>
-
-        <CardMedia
-          className={styles.memeCardMedia}
-          component="img"
-          image={meme?.url || "https://pbs.twimg.com/media/EAmr-PAWsAEoiWR.jpg"}
-          alt="meme"
+      <AspectRatio ratio={4/3}>
+        <img
+          src={currentMeme.url}
+          alt={currentMeme.title}
+          style={{
+            objectFit: 'contain',
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'var(--gray-a2)',
+          }}
         />
+      </AspectRatio>
 
-        <CardActions className={styles.memeCardActions}>
-          <a href={meme?.postLink || '#'}>
-            <Button
-              size="small"
-              variant="outlined"
-              endIcon={<ExitToApp/>}
-            >
-              Source
-            </Button>
-          </a>
-        </CardActions>
-      </Card>
-    </>
-  )
+      <Box p="4" pt="3">
+        <Link
+          href={currentMeme.postLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '6px',
+            fontSize: '15px'
+          }}
+        >
+          <Text size="3">View Source</Text>
+          <ExternalLinkIcon width="16" height="16" />
+        </Link>
+      </Box>
+    </Card>
+  );
 }
+
+export default MgMemeCard;
