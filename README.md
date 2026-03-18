@@ -3,7 +3,7 @@ Basic meme generator application with very simple UI.
 This is my test project to dive deep next.js. 
 Fetching memes from random reddit posts thanks to <a href="https://github.com/D3vd/Meme_Api">this api.</a>
 ### Live demo
-<a href="https://meme-generator-ssamilg.vercel.app/">Meme generator</a>
+<a href="https://ssg-meme-generator.netlify.app/">Meme generator</a>
 
 <hr>
 
